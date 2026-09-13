@@ -1,0 +1,37 @@
+/* ============================================================
+   LAYOUT — the stage, the slide box, and grid helpers
+   ============================================================ */
+
+/* The stage is a fixed-size canvas scaled to fit the window,
+   so slide layout never reflows unpredictably. */
+#stage{
+  position:absolute;top:50%;left:50%;
+  width:var(--slide-w);height:var(--slide-h);
+  transform-origin:center center;
+}
+
+.slide{
+  position:absolute;inset:0;
+  display:none;flex-direction:column;
+  padding:var(--pad);
+  background:var(--paper);
+  border-radius:2px;
+  box-shadow:0 24px 70px rgba(0,0,0,.4);
+  transition:background var(--dur) var(--ease);
+}
+.slide.is-active{display:flex}
+
+/* entrance animation, suppressed in overview and print */
+.slide.is-active > *{animation:rise .34s var(--ease) both}
+.slide.is-active > *:nth-child(2){animation-delay:.04s}
+.slide.is-active > *:nth-child(3){animation-delay:.08s}
+.slide.is-active > *:nth-child(4){animation-delay:.12s}
+@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* ---- grid helpers ---- */
+.cols   {display:grid;grid-template-columns:1fr 1fr;gap:40px;align-content:start}
+.cols-3 {display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
+.cols-4 {display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
+.fill   {flex:1}
+.push   {margin-top:auto}
+.rule   {height:1px;background:var(--line);margin:28px 0}

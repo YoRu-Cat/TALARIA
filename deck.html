@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Talaria Technologies — Credit Facility Expansion</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   DESIGN TOKENS — edit these first to restyle the whole deck
+   ============================================================ */
+:root{
+  --ink:      #14181d;   /* primary text            */
+  --ink-soft: #5b6673;   /* secondary text          */
+  --ink-faint:#9aa5b1;   /* labels, slide numbers   */
+  --paper:    #f7f6f3;   /* slide background        */
+  --paper-2:  #ffffff;   /* card background         */
+  --accent:   #0f6f6a;   /* primary accent (teal)   */
+  --accent-2: #c2703a;   /* secondary accent (rust) */
+  --line:     #e2e0da;   /* hairlines, borders      */
+  --stage-bg: #2a2d31;   /* area around the slide   */
+
+  --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Fraunces', Georgia, serif;
+
+  --pad: 72px;           /* slide inner padding     */
+}
+
+/* ============================================================
+   STAGE — fixed 1280x720 slide, scaled to fit the window
+   ============================================================ */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden;background:var(--stage-bg);font-family:var(--font-body)}
+#stage{position:absolute;top:50%;left:50%;width:1280px;height:720px;transform-origin:center center}
+
+.slide{
+  position:absolute;inset:0;
+  background:var(--paper);color:var(--ink);
+  padding:var(--pad);
+  display:none;flex-direction:column;
+  box-shadow:0 24px 60px rgba(0,0,0,.35);
+}
+.slide.active{display:flex;animation:fade .28s ease}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ============================================================
+   TYPE SCALE
+   ============================================================ */
+.eyebrow{
+  font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:18px;
+}
+h1{font-family:var(--font-display);font-size:64px;font-weight:600;line-height:1.05;letter-spacing:-.02em}
+h2{font-family:var(--font-display);font-size:44px;font-weight:600;line-height:1.12;letter-spacing:-.015em;margin-bottom:24px}
+h3{font-size:20px;font-weight:600;margin-bottom:8px}
+p{font-size:20px;line-height:1.55;color:var(--ink-soft);max-width:62ch}
+p.lead{font-size:24px;color:var(--ink)}
+strong{color:var(--ink);font-weight:600}
+.ph{color:var(--accent-2);font-weight:600}      /* [Insert …] placeholder */
+
+/* ============================================================
+   COMPONENTS
+   ============================================================ */
+.rule{height:1px;background:var(--line);margin:28px 0}
+
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:40px;flex:1;align-content:start}
+.cols-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+
+.card{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:10px;
+  padding:26px;
+}
+.card .num{font-family:var(--font-display);font-size:38px;color:var(--accent);line-height:1;margin-bottom:10px}
+.card p{font-size:16px;line-height:1.5}
+
+ul.points{list-style:none;display:flex;flex-direction:column;gap:18px;margin-top:8px}
+ul.points li{font-size:20px;line-height:1.5;color:var(--ink-soft);padding-left:26px;position:relative;max-width:60ch}
+ul.points li::before{
+  content:"";position:absolute;left:0;top:11px;
+  width:8px;height:8px;border-radius:2px;background:var(--accent);
+}
+
+.stat-row{display:flex;gap:56px;margin-top:auto;padding-top:28px;border-top:1px solid var(--line)}
+.stat .k{font-family:var(--font-display);font-size:40px;color:var(--ink);line-height:1}
+.stat .l{font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-top:8px}
+
+.quote{
+  font-family:var(--font-display);font-size:34px;line-height:1.3;color:var(--ink);
+  border-left:3px solid var(--accent);padding-left:28px;max-width:24ch;
+}
+
+/* section divider slide */
+.slide.divider{background:var(--ink);color:var(--paper);justify-content:center}
+.slide.divider h2{color:var(--paper);font-size:56px;margin:0}
+.slide.divider .eyebrow{color:var(--accent-2)}
+
+/* title slide */
+.slide.title{justify-content:center}
+.slide.title h1{max-width:18ch}
+.slide.title .sub{font-size:22px;color:var(--ink-soft);margin-top:24px}
+.slide.title .meta{margin-top:auto;display:flex;justify-content:space-between;
+  font-size:14px;color:var(--ink-faint);letter-spacing:.06em;text-transform:uppercase}
+
+/* ============================================================
+   CHROME — progress bar, slide number, hint
+   ============================================================ */
+#bar{position:fixed;top:0;left:0;height:3px;background:var(--accent);width:0;z-index:10;transition:width .25s ease}
+#num{position:fixed;bottom:16px;right:20px;color:#8b929a;font-size:13px;letter-spacing:.08em;z-index:10}
+#hint{position:fixed;bottom:16px;left:20px;color:#6e757d;font-size:12px;letter-spacing:.05em;z-index:10}
+
+/* ============================================================
+   PRINT — Ctrl/Cmd+P gives one slide per page (landscape)
+   ============================================================ */
+@media print{
+  @page{size:1280px 720px;margin:0}
+  html,body{overflow:visible;background:#fff;height:auto}
+  #stage{position:static;transform:none!important;width:auto;height:auto}
+  #bar,#num,#hint{display:none}
+  .slide{position:relative;display:flex!important;page-break-after:always;box-shadow:none;
+         width:1280px;height:720px;animation:none}
+}
+</style>
+</head>
+<body>
+
+<div id="bar"></div>
+<div id="hint">&larr; &rarr; navigate &nbsp;·&nbsp; F fullscreen</div>
+<div id="num"></div>
+
+<div id="stage">
+
+  <!-- 1 ─────────────────────────────────────────── TITLE -->
+  <section class="slide title">
+    <div class="eyebrow">Commercial Credit Facility · Phase 2</div>
+    <h1>Sizing the facility to the business it supports</h1>
+    <div class="sub">A request for a 20% extension of our existing commercial credit line</div>
+    <div class="meta">
+      <span>Talaria Technologies Inc.</span>
+      <span><span class="ph">[Insert Date]</span></span>
+    </div>
+  </section>
+
+  <!-- 2 ─────────────────────────────────────────── THE ASK -->
+  <section class="slide">
+    <div class="eyebrow">The request</div>
+    <h2>A 20% extension, and a matching transfer ceiling</h2>
+    <p class="lead">Not a new relationship and not a new risk profile — a scaling request against a plan this bank has already underwritten.</p>
+    <div class="stat-row">
+      <div class="stat"><div class="k"><span class="ph">[Current $]</span></div><div class="l">Current limit</div></div>
+      <div class="stat"><div class="k"><span class="ph">[New $]</span></div><div class="l">Requested limit</div></div>
+      <div class="stat"><div class="k">+20%</div><div class="l">Extension</div></div>
+      <div class="stat"><div class="k"><span class="ph">[DSCR]</span></div><div class="l">Debt service coverage</div></div>
+    </div>
+  </section>
+
+  <!-- 3 ─────────────────────────────────────────── PROBLEM -->
+  <section class="slide">
+    <div class="eyebrow">The problem we solve</div>
+    <h2>Flat commissions break remote routes</h2>
+    <div class="cols">
+      <div>
+        <ul class="points">
+          <li>Under a flat commission, a driver earns materially less on a low-density route than on a dense urban one.</li>
+          <li>So drivers decline and cancel those trips.</li>
+          <li>Riders outside the core grid get unreliable service.</li>
+          <li>The platform quietly loses the demand it cannot serve.</li>
+        </ul>
+      </div>
+      <div class="quote">The incentive to refuse the hard route is built into the pricing.</div>
+    </div>
+  </section>
+
+  <!-- 4 ─────────────────────────────────────────── MECHANISM -->
+  <section class="slide">
+    <div class="eyebrow">The mechanism</div>
+    <h2>A platform fee that moves with route density</h2>
+    <p class="lead" style="margin-bottom:32px">Averaging <strong>5%</strong> — lower on the routes that are hardest to serve, higher where volume is dense.</p>
+    <svg viewBox="0 0 900 220" style="width:100%;max-width:900px">
+      <line x1="60" y1="180" x2="860" y2="180" stroke="#e2e0da" stroke-width="1.5"/>
+      <line x1="60" y1="30"  x2="60"  y2="180" stroke="#e2e0da" stroke-width="1.5"/>
+      <polyline points="60,150 250,130 470,100 690,70 860,55"
+                fill="none" stroke="#0f6f6a" stroke-width="3" stroke-linecap="round"/>
+      <circle cx="60"  cy="150" r="6" fill="#0f6f6a"/>
+      <circle cx="860" cy="55"  r="6" fill="#0f6f6a"/>
+      <text x="60"  y="205" font-family="Inter" font-size="14" fill="#9aa5b1">Remote / low density</text>
+      <text x="740" y="205" font-family="Inter" font-size="14" fill="#9aa5b1">Urban / high density</text>
+      <text x="80"  y="142" font-family="Inter" font-size="14" fill="#5b6673">lower platform fee</text>
+      <text x="700" y="42"  font-family="Inter" font-size="14" fill="#5b6673">higher platform fee</text>
+    </svg>
+    <p style="margin-top:20px">Driver take-home is levelled across route types, so the reason to refuse a remote trip is removed at the source.</p>
+  </section>
+
+  <!-- 5 ─────────────────────────────────────────── WHY A LENDER CARES -->
+  <section class="slide">
+    <div class="eyebrow">Why this matters to a lender</div>
+    <h2>Stability, not upside</h2>
+    <div class="cols-3" style="margin-top:12px">
+      <div class="card">
+        <div class="num">01</div>
+        <h3>Supply is retained</h3>
+        <p>Drivers stay available across route types, which sustains fulfilment.</p>
+      </div>
+      <div class="card">
+        <div class="num">02</div>
+        <h3>Volume is predictable</h3>
+        <p>Sustained fulfilment means transaction volume does not swing with geography.</p>
+      </div>
+      <div class="card">
+        <div class="num">03</div>
+        <h3>Margin is stabilised</h3>
+        <p>A fee that floats around 5% rather than spiking produces steady revenue per trip.</p>
+      </div>
+    </div>
+    <div class="rule"></div>
+    <p><strong>This is a volume-and-reliability model, not a high-variance one</strong> — the profile a lender should prefer.</p>
+  </section>
+
+  <!-- 6 ─────────────────────────────────────────── WHERE WE ARE -->
+  <section class="slide">
+    <div class="eyebrow">Status</div>
+    <h2>Phase 1 is complete. Phase 2 is compute.</h2>
+    <div class="cols">
+      <div class="card">
+        <h3 style="color:var(--accent)">Phase 1 — done</h3>
+        <p>Core software architecture finalised. Facility used as underwritten. Unit economics evaluated and approved by this bank.</p>
+      </div>
+      <div class="card" style="border-color:var(--accent)">
+        <h3 style="color:var(--accent)">Phase 2 — beginning</h3>
+        <p>Parameter training and real-time mapping simulation on cloud-based GPU banks. Approx. <span class="ph">[Insert $/month]</span> across <span class="ph">[Insert N]</span> environments.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 ─────────────────────────────────────────── THE WORKLOAD -->
+  <section class="slide">
+    <div class="eyebrow">Phase 2 workload</div>
+    <h2>Two jobs, both GPU-bound</h2>
+    <ul class="points">
+      <li><strong>Parameter training.</strong> The dynamic fee is only defensible if it is accurate — trained against historical route density, cancellation behaviour, driver earnings distributions and demand seasonality.</li>
+      <li><strong>Real-time mapping simulation.</strong> Pricing logic is validated against simulated network conditions — traffic, surge, supply shocks, edge-case routes — before any driver or rider sees it.</li>
+    </ul>
+  </section>
+
+  <!-- 8 ─────────────────────────────────────────── THE BOTTLENECK  (key slide) -->
+  <section class="slide">
+    <div class="eyebrow">The constraint</div>
+    <h2>Transfer velocity, not solvency</h2>
+    <div class="cols">
+      <div>
+        <ul class="points">
+          <li>GPU capacity is procured on demand, billed on short usage-based cycles.</li>
+          <li>Outflows are high-frequency and unevenly distributed — not a smooth monthly draft.</li>
+          <li>Our daily ceiling was set against an even, development-stage burn rate.</li>
+          <li>Training runs now stall waiting on settlement rather than on capital.</li>
+        </ul>
+      </div>
+      <div class="quote">The ratios are unchanged. What is misaligned is the shape of the facility against the shape of the spend.</div>
+    </div>
+  </section>
+
+  <!-- 9 ─────────────────────────────────────────── CONSOLIDATION -->
+  <section class="slide">
+    <div class="eyebrow">A deliberate choice</div>
+    <h2>One account, on purpose</h2>
+    <p class="lead" style="margin-bottom:28px">We could relieve this pressure by spreading activity across institutions. We have declined to.</p>
+    <div class="cols-3">
+      <div class="card"><h3>Transparency</h3><p>One unbroken transaction record, no reconciliation gaps.</p></div>
+      <div class="card"><h3>Compliance</h3><p>A single reporting perimeter for tax and regulatory filing.</p></div>
+      <div class="card"><h3>Auditability</h3><p>One consolidated ledger rather than parallel histories.</p></div>
+    </div>
+    <div class="rule"></div>
+    <p>Your credit team keeps continuous visibility into our full cash position. Fragmenting our banking would degrade that for both of us.</p>
+  </section>
+
+  <!-- 10 ────────────────────────────────────────── THE OFFER -->
+  <section class="slide">
+    <div class="eyebrow">What we are prepared to offer</div>
+    <h2>We will share the cost of speed</h2>
+    <ul class="points">
+      <li><strong>Adjusted maintenance fees or interest margin</strong> in exchange for an expedited review.</li>
+      <li><strong>Tiered drawdown</strong> — the incremental tranche released against defined Phase 2 milestones.</li>
+      <li><strong>Enhanced reporting</strong> — monthly compute reconciliation and updated coverage ratios.</li>
+      <li><strong>Scheduled review at Phase 2 completion</strong>, re-sizing the facility against demonstrated results.</li>
+    </ul>
+  </section>
+
+  <!-- 11 ────────────────────────────────────────── CLOSE -->
+  <section class="slide">
+    <div class="eyebrow">Next steps</div>
+    <h2>The package is ready</h2>
+    <p class="lead">Updated statements, Phase 2 compute forecast, revised twelve-month projections and Phase 1 facility performance — deliverable within <span class="ph">[Insert N]</span> business days.</p>
+    <div class="rule"></div>
+    <p>Phase 1 rested on this bank's willingness to underwrite a model that was then unproven. It is now proven. This request asks only that the facility be kept sized to the business it supports.</p>
+  </section>
+
+  <!-- 12 ────────────────────────────────────────── DIVIDER -->
+  <section class="slide divider">
+    <div class="eyebrow">Part two</div>
+    <h2>How the argument was built</h2>
+  </section>
+
+  <!-- 13 ────────────────────────────────────────── RHETORICAL MOVES -->
+  <section class="slide">
+    <div class="eyebrow">Persuasive strategy</div>
+    <h2>Four moves, one audience</h2>
+    <div class="cols-3" style="margin-top:8px">
+      <div class="card"><div class="num">01</div><h3>Continuity over novelty</h3><p>Framed as scaling an approved plan, not a new ask — reduces perceived risk.</p></div>
+      <div class="card"><div class="num">02</div><h3>Name the misreading</h3><p>States plainly that this is velocity, not solvency, before the reader can conclude otherwise.</p></div>
+      <div class="card"><div class="num">03</div><h3>Reframe self-interest</h3><p>Consolidation presented as the bank's visibility, not our convenience.</p></div>
+    </div>
+    <div class="cols-3" style="margin-top:24px">
+      <div class="card"><div class="num">04</div><h3>Offer constraint, not just money</h3><p>Volunteered safeguards persuade a credit committee more than a higher rate does.</p></div>
+      <div class="card" style="background:transparent;border-style:dashed"><h3 style="color:var(--ink-faint)">Your slide</h3><p>Space for an addition.</p></div>
+      <div class="card" style="background:transparent;border-style:dashed"><h3 style="color:var(--ink-faint)">Your slide</h3><p>Space for an addition.</p></div>
+    </div>
+  </section>
+
+  <!-- 14 ────────────────────────────────────────── OMISSIONS -->
+  <section class="slide">
+    <div class="eyebrow">Deliberate omissions</div>
+    <h2>What was left out, and why</h2>
+    <ul class="points">
+      <li><strong>The threat to move banks.</strong> Coercive in a mid-relationship letter; tends to trigger committee caution rather than speed. Implied once, softly, instead.</li>
+      <li><strong>A named 15% premium.</strong> Stating a specific number first makes it the floor of the negotiation, not the ceiling.</li>
+      <li><strong>Urgency language.</strong> "Detrimental to our progress" reads as distress to a risk-aware reader; the cost of delay is shown concretely instead.</li>
+    </ul>
+  </section>
+
+</div>
+
+<script>
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+const slides = document.querySelectorAll('.slide');
+const bar = document.getElementById('bar');
+const num = document.getElementById('num');
+let i = 0;
+
+function show(n){
+  i = Math.max(0, Math.min(slides.length - 1, n));
+  slides.forEach((s, k) => s.classList.toggle('active', k === i));
+  bar.style.width = ((i + 1) / slides.length * 100) + '%';
+  num.textContent = (i + 1) + ' / ' + slides.length;
+  location.hash = i + 1;
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'PageDown') { e.preventDefault(); show(i + 1); }
+  if (e.key === 'ArrowLeft'  || e.key === 'PageUp')                    { e.preventDefault(); show(i - 1); }
+  if (e.key === 'Home') show(0);
+  if (e.key === 'End')  show(slides.length - 1);
+  if (e.key === 'f' || e.key === 'F') {
+    document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+  }
+});
+
+document.addEventListener('click', e => {
+  if (e.clientX < window.innerWidth * 0.25) show(i - 1); else show(i + 1);
+});
+
+/* scale the fixed 1280x720 stage to fit the window */
+function fit(){
+  const s = Math.min(window.innerWidth / 1280, window.innerHeight / 720) * 0.94;
+  document.getElementById('stage').style.transform =
+    'translate(-50%, -50%) scale(' + s + ')';
+}
+window.addEventListener('resize', fit);
+
+fit();
+show(parseInt(location.hash.slice(1), 10) - 1 || 0);
+</script>
+</body>
+</html>

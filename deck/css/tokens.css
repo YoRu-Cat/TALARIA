@@ -1,0 +1,62 @@
+/* ============================================================
+   TOKENS — the single source of truth for the deck's look.
+   Change a value here and every slide follows.
+   ============================================================ */
+:root{
+  /* ---- brand ---- */
+  --accent:        #0f6f6a;
+  --accent-soft:   #0f6f6a1a;
+  --accent-2:      #c2703a;
+
+  /* ---- surfaces ---- */
+  --paper:         #f7f6f3;
+  --paper-2:       #ffffff;
+  --stage-bg:      #24272b;
+  --line:          #e4e2dc;
+
+  /* ---- text ---- */
+  --ink:           #14181d;
+  --ink-soft:      #5b6673;
+  --ink-faint:     #98a2ad;
+  --ink-invert:    #f7f6f3;
+
+  /* ---- type ---- */
+  --font-body:     'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display:  'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-mono:     'JetBrains Mono', ui-monospace, Consolas, monospace;
+
+  --fs-h1:         64px;
+  --fs-h2:         44px;
+  --fs-h3:         20px;
+  --fs-lead:       24px;
+  --fs-body:       20px;
+  --fs-small:      16px;
+  --fs-label:      13px;
+
+  /* ---- geometry ---- */
+  --slide-w:       1280px;
+  --slide-h:       720px;
+  --pad:           72px;
+  --radius:        10px;
+  --presenter-w:   380px;
+  --gap:           24px;
+
+  /* ---- motion ---- */
+  --ease:          cubic-bezier(.22,.61,.36,1);
+  --dur:           .3s;
+}
+
+/* ---- dark theme: toggled with the T key (see js/ui/theme.js) ---- */
+:root[data-theme="dark"]{
+  --accent:        #4ecdc4;
+  --accent-soft:   #4ecdc41f;
+  --accent-2:      #e8a87c;
+  --paper:         #16191d;
+  --paper-2:       #1d2126;
+  --stage-bg:      #0a0c0e;
+  --line:          #2b3138;
+  --ink:           #eef1f4;
+  --ink-soft:      #a3adb8;
+  --ink-faint:     #6c7783;
+  --ink-invert:    #16191d;
+}

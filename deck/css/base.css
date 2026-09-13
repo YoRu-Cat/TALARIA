@@ -1,0 +1,34 @@
+/* ============================================================
+   BASE — reset, page shell, typography primitives
+   ============================================================ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+html,body{
+  height:100%;
+  overflow:hidden;
+  background:var(--stage-bg);
+  font-family:var(--font-body);
+  -webkit-font-smoothing:antialiased;
+  transition:background var(--dur) var(--ease);
+}
+
+h1{font-family:var(--font-display);font-size:var(--fs-h1);font-weight:600;line-height:1.05;letter-spacing:-.02em;color:var(--ink)}
+h2{font-family:var(--font-display);font-size:var(--fs-h2);font-weight:600;line-height:1.12;letter-spacing:-.015em;color:var(--ink);margin-bottom:24px}
+h3{font-size:var(--fs-h3);font-weight:600;color:var(--ink);margin-bottom:8px}
+
+p{font-size:var(--fs-body);line-height:1.55;color:var(--ink-soft);max-width:62ch}
+p.lead{font-size:var(--fs-lead);color:var(--ink)}
+strong{color:var(--ink);font-weight:600}
+em{font-style:italic}
+
+a{color:var(--accent);text-decoration:none}
+
+/* placeholder for figures the finance team fills in */
+.ph{color:var(--accent-2);font-weight:600;white-space:nowrap}
+
+kbd{
+  font-family:var(--font-mono);font-size:12px;
+  background:var(--paper-2);border:1px solid var(--line);
+  border-bottom-width:2px;border-radius:4px;
+  padding:2px 7px;color:var(--ink);
+}

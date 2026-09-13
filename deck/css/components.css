@@ -1,0 +1,50 @@
+/* ============================================================
+   COMPONENTS — reusable slide furniture
+   ============================================================ */
+
+.eyebrow{
+  font-size:var(--fs-label);font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:18px;
+}
+
+.card{
+  background:var(--paper-2);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:26px;
+  transition:background var(--dur) var(--ease),border-color var(--dur) var(--ease);
+}
+.card.is-highlight{border-color:var(--accent);background:var(--accent-soft)}
+.card.is-ghost{background:transparent;border-style:dashed}
+.card .num{
+  font-family:var(--font-display);font-size:38px;line-height:1;
+  color:var(--accent);margin-bottom:10px;
+}
+.card p{font-size:var(--fs-small);line-height:1.5}
+
+ul.points{list-style:none;display:flex;flex-direction:column;gap:18px;margin-top:8px}
+ul.points li{
+  font-size:var(--fs-body);line-height:1.5;color:var(--ink-soft);
+  padding-left:26px;position:relative;max-width:60ch;
+}
+ul.points li::before{
+  content:"";position:absolute;left:0;top:11px;
+  width:8px;height:8px;border-radius:2px;background:var(--accent);
+}
+
+.stat-row{display:flex;gap:56px;padding-top:28px;border-top:1px solid var(--line)}
+.stat .k{font-family:var(--font-display);font-size:40px;line-height:1;color:var(--ink)}
+.stat .l{font-size:var(--fs-label);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);margin-top:8px}
+
+.quote{
+  font-family:var(--font-display);font-size:34px;line-height:1.3;color:var(--ink);
+  border-left:3px solid var(--accent);padding-left:28px;max-width:24ch;
+}
+
+/* ---- fragments: elements revealed one keypress at a time ---- */
+.frag{opacity:.12;transition:opacity .28s var(--ease),transform .28s var(--ease);transform:translateY(4px)}
+.frag.is-shown{opacity:1;transform:none}
+
+/* speaker notes never render on the slide itself */
+.notes{display:none}

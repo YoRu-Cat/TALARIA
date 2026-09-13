@@ -1,0 +1,16 @@
+/* ============================================================
+   PRINT — Ctrl/Cmd+P exports one slide per landscape page
+   ============================================================ */
+@media print{
+  @page{size:1280px 720px;margin:0}
+  html,body{overflow:visible;height:auto;background:#fff}
+  #stage{position:static;transform:none!important;width:auto;height:auto}
+  #progress,#counter,#hint,#overview,#presenter,#help,#modwarn{display:none!important}
+  .slide{
+    position:relative;display:flex!important;
+    width:var(--slide-w);height:var(--slide-h);
+    page-break-after:always;box-shadow:none;border-radius:0;
+  }
+  .slide > *{animation:none!important}
+  .frag{opacity:1!important;transform:none!important}
+}
