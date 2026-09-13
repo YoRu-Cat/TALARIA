@@ -8,7 +8,7 @@
 
 ## Slide 1 — Design the ceiling. Then remove what you don't need.
 
-**Layout** Hero focal centre. Logo mark on the vertical axis, everything stacked and centred beneath it. Presenter and date pinned to the bottom corners.
+**Layout** Hero focal centre. Logo mark on the vertical axis, everything stacked and centred beneath it. Date centred at the base — no presenter credit, since the talk is shared between two to three speakers.
 
 **Visual direction** Traced SVG mark (`assets/mark.svg`) at 132px, the only object above the fold. Blue eyebrow, navy display headline, single grey subtitle line. Deliberately empty — the centre-alignment motif is stated visually before it is argued.
 
@@ -16,6 +16,7 @@
 - Eyebrow: TALARIA TECHNOLOGIES · AI OPERATIONS
 - H1: Design the ceiling. Then remove what you don't need.
 - Sub: A top-down prompt architecture for company-wide AI adoption
+- Foot: 13 September 2026
 
 **Presenter notes** Open on the contrast, not the agenda. Most people build prompts upward from nothing; we build downward from a complete specification. Everything that follows is a consequence of that one reversal.
 
