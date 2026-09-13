@@ -1,6 +1,6 @@
 # Deductive Prompt Architecture — Deck Script & Layout Plan
 
-**Deck:** `deck/index.html` (10 slides) · **Company:** Talaria Technologies Inc.
+**Deck:** `deck/index.html` (13 slides) · **Company:** Talaria Technologies Inc.
 **Palette:** sampled from `assets/logo.svg` — Talaria blue `#1E7BFF`, navy `#1C2333`, paper `#F7F8FA`
 **Type:** Fraunces (display) / Inter (body) · minimum on-slide size 21px at 1280×720 — legible from the back of a room
 
@@ -80,7 +80,57 @@
 
 ---
 
-## Slide 6 — Control without a bottleneck
+## Slide 6 — What we asked for, twice
+
+**Layout** Two-row comparison grid. Row one holds the two prompt excerpts at equal height with their tops aligned; row two holds a one-line takeaway under each.
+
+**Visual direction** Both excerpts sit in dark, monospaced cards so they read unmistakably as *input* rather than prose. Rust label chips; the specified elements of the final prompt picked out in Talaria blue. The right-hand card and its takeaway reveal on separate keypresses.
+
+**Body**
+- **First pass · raw context** — "We have to convince a bank to increase our credit line… we will be borrowing GPUs for testing our new mapping product, the current credit line won't allow sufficient funds transfers… We are willing to pay an extra 15%."
+  → *Real information, no specification. Role, reader, format and exclusions all left to the model.*
+- **Final pass · master prompt** — "Act as the CEO of Talaria Technologies Inc. Write a formal, persuasive business letter to our Commercial Bank Relationship Manager… Leave placeholders like [Insert DSCR]… Maintain a tone suitable for a risk-aware financial audience."
+  → *Role, reader, ask, tone and unknowns — all fixed before a word was drafted.*
+
+**Presenter notes** Read both aloud. The first is not a bad prompt — it carries genuine context. It simply decides nothing, and every decision it skips the model makes on your behalf.
+
+---
+
+## Slide 7 — Same argument, sharper instrument
+
+**Layout** Identical two-row grid to slide 6, so the eye maps input directly onto output.
+
+**Visual direction** Light cards with a serif face this time — these are *documents*, not instructions. The rhyme with the previous slide is deliberate: same geometry, inverted treatment.
+
+**Body**
+- **Letter one** — "Phase 2 changes our cash mechanics in one specific way… The constraint is one of velocity and timing, not solvency."
+  → *Correct and compact. Built to be scanned.*
+- **Final letter** — "I want to be precise about the nature of the constraint, because it would be easy to misread… Stated plainly, this is a constraint of velocity and timing, not of solvency or coverage."
+  → *The same claim, now naming the misreading before the reader reaches it.*
+
+**Presenter notes** The argument did not change between these two. Only its handling of the reader did — and that came from the brief, not from a rewrite.
+
+---
+
+## Slide 8 — Three axes, one direction
+
+**Layout** Comparison table. A narrow axis column on the left, then First pass and Final pass columns, three rows divided by hairlines.
+
+**Visual direction** No cards, no fills — hairline rules only, so the content carries itself. The Final pass column header is blue and its cells sit at full ink weight; the First pass column is one step lighter. The contrast is stated by typographic weight rather than by colour blocks.
+
+**Body**
+
+| | First pass | Final pass |
+|---|---|---|
+| **Flexibility** | The brief set the goal, not the form. The writer chose the structure. | Form fixed; flexibility moved into named placeholders the finance team owns. |
+| **Design choice** | Headings and bold lead-ins, built for scanning. | Unbroken prose, full-block convention — a committee reads a letter, not a memo. |
+| **Responsibility** | Leverage stated bluntly: a 15% premium, a threat to move banks. | Coercion dropped, concessions paired with safeguards, unverifiable figures left blank. |
+
+**Presenter notes** Responsibility is the row to dwell on. Specifying the prompt did not only improve the prose — it decided what we were willing to say, and what we refused to claim without evidence.
+
+---
+
+## Slide 9 — Control without a bottleneck
 
 **Layout** 3-column card layout, vertically centred.
 
@@ -95,7 +145,7 @@
 
 ---
 
-## Slide 7 — What changed, measured
+## Slide 10 — What changed, measured
 
 **Layout** Four large metric callouts in a row, each on a blue left rule. Sourcing footnote at the base.
 
@@ -112,7 +162,7 @@
 
 ---
 
-## Slide 8 — The engine sits at the centre
+## Slide 11 — The engine sits at the centre
 
 **Layout** Concentric radial diagram, full bleed within the content area.
 
@@ -124,7 +174,7 @@
 
 ---
 
-## Slide 9 — Govern the core, not the forks
+## Slide 12 — Govern the core, not the forks
 
 **Layout** Three-phase step ribbon, hairline rules between phases.
 
@@ -139,7 +189,7 @@
 
 ---
 
-## Slide 10 — The thesis
+## Slide 13 — The thesis
 
 **Layout** Statement slide. Left-aligned, vertically centred, nothing else on the surface.
 

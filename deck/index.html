@@ -217,7 +217,69 @@
         reasoning was authored once, because it was specified before the first draft existed.</aside>
     </section>
 
-    <!-- ══ 6 ══ OPERATIONAL IMPACT — 3-column cards ══ -->
+    <!-- ══ 6 ══ PROMPT COMPARISON — verbatim, side by side ══ -->
+  <section class="slide" data-title="The prompt evolved">
+    <div class="eyebrow">The input</div>
+    <h2>What we asked for, twice</h2>
+    <div class="pairgrid fill">
+      <div class="snip snip--prompt">
+        <div class="chip">First pass · raw context</div>
+        <div class="txt">"We have to convince a bank to increase our credit line… we will be borrowing GPUs for testing our new mapping product, the current credit line won't allow sufficient funds transfers… We are willing to pay an extra 15%."</div>
+      </div>
+      <div class="snip snip--prompt frag">
+        <div class="chip">Final pass · master prompt</div>
+        <div class="txt">"<b>Act as the CEO</b> of Talaria Technologies Inc. Write a formal, persuasive business letter to our <b>Commercial Bank Relationship Manager</b>… Leave placeholders like <b>[Insert DSCR]</b>… Maintain a tone suitable for a <b>risk-aware financial audience</b>."</div>
+      </div>
+      <p class="takeaway">Real information, <b>no specification</b>. Role, reader, format and exclusions all left to the model.</p>
+      <p class="takeaway frag">Role, reader, ask, tone and unknowns — <b>all fixed before a word was drafted</b>.</p>
+    </div>
+    <aside class="notes">Read both aloud. The first is not a bad prompt — it carries genuine context. It simply decides nothing, and every decision it skips the model makes on your behalf.</aside>
+  </section>
+
+  <!-- ══ 7 ══ LETTER COMPARISON — same claim, two instruments ══ -->
+  <section class="slide" data-title="The letter evolved">
+    <div class="eyebrow">The output</div>
+    <h2>Same argument, sharper instrument</h2>
+    <div class="pairgrid fill">
+      <div class="snip snip--letter">
+        <div class="chip">Letter one</div>
+        <div class="txt">"Phase 2 changes our cash mechanics in one specific way… The constraint is one of <b>velocity and timing, not solvency</b>."</div>
+      </div>
+      <div class="snip snip--letter frag">
+        <div class="chip">Final letter</div>
+        <div class="txt">"I want to be precise about the nature of the constraint, <b>because it would be easy to misread</b>… Stated plainly, this is a constraint of velocity and timing, not of solvency or coverage."</div>
+      </div>
+      <p class="takeaway">Correct and compact. Built to be <b>scanned</b>.</p>
+      <p class="takeaway frag">The same claim, now <b>naming the misreading</b> before the reader reaches it.</p>
+    </div>
+    <aside class="notes">The argument did not change between these two. Only its handling of the reader did — and that came from the brief, not from a rewrite.</aside>
+  </section>
+
+  <!-- ══ 8 ══ THREE AXES — the comparison that matters ══ -->
+  <section class="slide" data-title="Three axes">
+    <div class="eyebrow">What actually changed</div>
+    <h2>Three axes, one direction</h2>
+    <div class="cmp">
+      <div class="head"></div>
+      <div class="head">First pass</div>
+      <div class="head head--now">Final pass</div>
+
+      <div class="axis">Flexibility</div>
+      <div class="cell">The brief set the goal, not the form. The writer chose the structure.</div>
+      <div class="cell cell--now">Form fixed; flexibility moved into named placeholders the finance team owns.</div>
+
+      <div class="axis">Design choice</div>
+      <div class="cell">Headings and bold lead-ins, built for scanning.</div>
+      <div class="cell cell--now">Unbroken prose, full-block convention — a committee reads a letter, not a memo.</div>
+
+      <div class="axis">Responsibility</div>
+      <div class="cell">Leverage stated bluntly: a 15% premium, a threat to move banks.</div>
+      <div class="cell cell--now">Coercion dropped, concessions paired with safeguards, unverifiable figures left blank.</div>
+    </div>
+    <aside class="notes">Responsibility is the row to dwell on. Specifying the prompt did not only improve the prose — it decided what we were willing to say, and what we refused to claim without evidence.</aside>
+  </section>
+
+  <!-- ══ 9 ══ OPERATIONAL IMPACT — 3-column cards ══ -->
     <section class="slide" data-title="Operational impact">
       <div class="eyebrow">Operational impact</div>
       <h2>Control without a bottleneck</h2>
@@ -242,7 +304,7 @@
         the artefact, so the team does not have to carry it.</aside>
     </section>
 
-    <!-- ══ 7 ══ METRICS — large callouts ══ -->
+    <!-- ══ 10 ══ METRICS — large callouts ══ -->
     <section class="slide" data-title="Improvements">
       <div class="eyebrow">Noteworthy improvements</div>
       <h2>What changed, measured</h2>
@@ -270,7 +332,7 @@
         source is worse than no metric with this audience.</aside>
     </section>
 
-    <!-- ══ 8 ══ CENTRE ALIGNMENT — concentric radial ══ -->
+    <!-- ══ 11 ══ CENTRE ALIGNMENT — concentric radial ══ -->
     <section class="slide" data-title="Centre alignment">
       <div class="eyebrow">Strategic alignment</div>
       <h2>The engine sits at the centre</h2>
@@ -305,7 +367,7 @@
         core, so no team inherits a degraded copy of the standard.</aside>
     </section>
 
-    <!-- ══ 9 ══ ADOPTION — three phases ══ -->
+    <!-- ══ 12 ══ ADOPTION — three phases ══ -->
     <section class="slide" data-title="Adoption">
       <div class="eyebrow">Adoption model</div>
       <h2>Govern the core, not the forks</h2>
@@ -330,7 +392,7 @@
         from does.</aside>
     </section>
 
-    <!-- ══ 10 ══ CLOSE — statement ══ -->
+    <!-- ══ 13 ══ CLOSE — statement ══ -->
     <section class="slide slide--statement" data-title="Close">
       <div class="eyebrow">The thesis</div>
       <div class="quote" style="margin-bottom:36px">Undershooting is not a skill problem.<br>It is a direction problem.

@@ -102,3 +102,58 @@ ul.points li::before{
 /* SVG diagram labels: a presentation attribute loses to any CSS rule,
    so set the family here rather than on each <text>. */
 .slide svg text{font-family:var(--font-body)}
+
+/* ============================================================
+   EXCERPT CARDS — verbatim prompt / letter snippets
+   ============================================================ */
+.snip{
+  border-radius:var(--radius);padding:24px 26px;
+  display:flex;flex-direction:column;
+}
+.snip .chip{
+  font-size:12px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;margin-bottom:14px;
+}
+.snip .txt{color:inherit}
+
+/* the input: reads as a terminal / instruction block */
+.snip--prompt{background:var(--ink);color:var(--ink-invert)}
+.snip--prompt .chip{color:var(--accent-2)}
+.snip--prompt .txt{font-family:var(--font-mono);font-size:17px;line-height:1.65;opacity:.93}
+
+/* the output: reads as a document */
+.snip--letter{background:var(--paper-2);border:1px solid var(--line);color:var(--ink)}
+.snip--letter .chip{color:var(--accent)}
+.snip--letter .txt{font-family:var(--font-display);font-size:20px;line-height:1.5}
+
+.snip .txt b{color:var(--accent);font-weight:600}
+.snip--letter .txt b{color:var(--accent)}
+
+.takeaway{font-size:19px;line-height:1.45;color:var(--ink-soft);margin-top:16px}
+.takeaway b{color:var(--ink);font-weight:600}
+
+/* ============================================================
+   COMPARISON GRID — one axis per row, two positions per column
+   ============================================================ */
+.cmp{display:grid;grid-template-columns:210px 1fr 1fr;align-content:center;flex:1}
+.cmp > div{padding:18px 24px;border-top:1px solid var(--line)}
+.cmp .head{
+  border-top:0;padding:0 24px 14px;
+  font-size:13px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--ink-faint);
+}
+.cmp .head--now{color:var(--accent)}
+.cmp .axis{font-size:21px;font-weight:600;color:var(--ink);padding-left:0}
+.cmp .cell{font-size:19px;line-height:1.45;color:var(--ink-soft)}
+.cmp .cell--now{color:var(--ink)}
+
+/* Two excerpts compared: row 1 holds the cards (equal height, tops aligned),
+   row 2 holds their takeaways on a shared baseline. */
+.pairgrid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  grid-template-rows:auto auto;
+  gap:18px 36px;
+  align-content:center;
+}
+.pairgrid .takeaway{margin-top:0}
