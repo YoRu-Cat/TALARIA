@@ -3,35 +3,37 @@
    Change a value here and every slide follows.
    ============================================================ */
 :root{
-  /* ---- brand ---- */
-  --accent:        #0f6f6a;
-  --accent-soft:   #0f6f6a1a;
-  --accent-2:      #c2703a;
+  /* ---- brand: sampled from assets/logo.svg ---- */
+  --accent:        #1e7bff;   /* Talaria blue  */
+  --accent-soft:   #1e7bff14;
+  --accent-2:      #c2703a;   /* placeholder highlight */
 
   /* ---- surfaces ---- */
-  --paper:         #f7f6f3;
+  --paper:         #f7f8fa;
   --paper-2:       #ffffff;
-  --stage-bg:      #24272b;
-  --line:          #e4e2dc;
+  --stage-bg:      #10141c;
+  --line:          #e2e6ec;
 
   /* ---- text ---- */
-  --ink:           #14181d;
-  --ink-soft:      #5b6673;
-  --ink-faint:     #98a2ad;
-  --ink-invert:    #f7f6f3;
+  --ink:           #1c2333;   /* Talaria navy */
+  --ink-soft:      #55617a;
+  --ink-faint:     #94a0b5;
+  --ink-invert:    #f7f8fa;
 
   /* ---- type ---- */
   --font-body:     'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display:  'Fraunces', Georgia, 'Times New Roman', serif;
   --font-mono:     'JetBrains Mono', ui-monospace, Consolas, monospace;
 
-  --fs-h1:         64px;
-  --fs-h2:         44px;
-  --fs-h3:         20px;
-  --fs-lead:       24px;
-  --fs-body:       20px;
-  --fs-small:      16px;
-  --fs-label:      13px;
+  /* Sized for projection: readable from the back of a room.
+     Nothing on a slide should be smaller than --fs-small. */
+  --fs-h1:         78px;
+  --fs-h2:         54px;
+  --fs-h3:         26px;
+  --fs-lead:       31px;
+  --fs-body:       27px;
+  --fs-small:      21px;
+  --fs-label:      15px;
 
   /* ---- geometry ---- */
   --slide-w:       1280px;
@@ -48,15 +50,15 @@
 
 /* ---- dark theme: toggled with the T key (see js/ui/theme.js) ---- */
 :root[data-theme="dark"]{
-  --accent:        #4ecdc4;
-  --accent-soft:   #4ecdc41f;
+  --accent:        #5b9dff;
+  --accent-soft:   #5b9dff1f;
   --accent-2:      #e8a87c;
-  --paper:         #16191d;
-  --paper-2:       #1d2126;
-  --stage-bg:      #0a0c0e;
-  --line:          #2b3138;
-  --ink:           #eef1f4;
-  --ink-soft:      #a3adb8;
-  --ink-faint:     #6c7783;
-  --ink-invert:    #16191d;
+  --paper:         #141924;
+  --paper-2:       #1b2130;
+  --stage-bg:      #080b11;
+  --line:          #2a3345;
+  --ink:           #eef2f8;
+  --ink-soft:      #a4b0c4;
+  --ink-faint:     #6b7891;
+  --ink-invert:    #141924;
 }

@@ -1,263 +1,356 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Talaria Technologies — Credit Facility Expansion</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Talaria — Deductive Prompt Architecture</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/mark.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
 
-<!-- stylesheets load in cascade order: tokens first, overrides last -->
-<link rel="stylesheet" href="css/tokens.css">
-<link rel="stylesheet" href="css/base.css">
-<link rel="stylesheet" href="css/layout.css">
-<link rel="stylesheet" href="css/components.css">
-<link rel="stylesheet" href="css/slides.css">
-<link rel="stylesheet" href="css/overlays.css">
-<link rel="stylesheet" href="css/print.css">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/slides.css">
+  <link rel="stylesheet" href="css/overlays.css">
+  <link rel="stylesheet" href="css/print.css">
 </head>
+
 <body>
 
-<!-- ============ CHROME ============ -->
-<div id="progress"></div>
-<div id="hint">&larr; &rarr; move &nbsp;·&nbsp; <b>O</b> overview &nbsp;·&nbsp; <b>S</b> notes &nbsp;·&nbsp; <b>?</b> help</div>
-<div id="counter"></div>
+  <div id="progress"></div>
+  <div id="hint">&larr; &rarr; move &nbsp;·&nbsp; <b>O</b> overview &nbsp;·&nbsp; <b>S</b> notes &nbsp;·&nbsp; <b>?</b>
+    help</div>
+  <div id="counter"></div>
 
-<div id="overview"><div class="grid"></div></div>
-
-<aside id="presenter">
-  <div><h4>Elapsed</h4><div class="timer" data-timer>00:00</div></div>
-  <div style="flex:1;display:flex;flex-direction:column;min-height:0">
-    <h4>Speaker notes</h4>
-    <div class="note" data-note></div>
+  <div id="overview">
+    <div class="grid"></div>
   </div>
-  <div class="next" data-next></div>
-</aside>
 
-<div id="help"><div class="panel">
-  <h3>Keyboard</h3>
-  <table>
-    <tr><td><kbd>&rarr;</kbd> <kbd>Space</kbd></td><td>Next step / slide</td></tr>
-    <tr><td><kbd>&larr;</kbd></td><td>Previous</td></tr>
-    <tr><td><kbd>Home</kbd> <kbd>End</kbd></td><td>First / last slide</td></tr>
-    <tr><td><kbd>1</kbd>–<kbd>9</kbd></td><td>Jump to slide</td></tr>
-    <tr><td><kbd>O</kbd></td><td>Overview grid</td></tr>
-    <tr><td><kbd>S</kbd></td><td>Speaker notes + timer</td></tr>
-    <tr><td><kbd>T</kbd></td><td>Light / dark theme</td></tr>
-    <tr><td><kbd>F</kbd></td><td>Fullscreen</td></tr>
-    <tr><td><kbd>R</kbd></td><td>Reset timer</td></tr>
-    <tr><td><kbd>?</kbd> <kbd>Esc</kbd></td><td>Toggle / close this</td></tr>
-  </table>
-</div></div>
-
-<!-- ============ STAGE ============ -->
-<div id="stage">
-
-  <!-- 1 ─────────────────────────────── TITLE -->
-  <section class="slide slide--title" data-title="Title">
-    <div class="eyebrow">Commercial Credit Facility · Phase 2</div>
-    <h1>Sizing the facility to the business it supports</h1>
-    <div class="sub">A request for a 20% extension of our existing commercial credit line</div>
-    <div class="meta">
-      <span>Talaria Technologies Inc.</span>
-      <span class="ph">[Insert Date]</span>
+  <aside id="presenter">
+    <div>
+      <h4>Elapsed</h4>
+      <div class="timer" data-timer>00:00</div>
     </div>
-    <aside class="notes">Open on the relationship, not the number. This bank already backed Phase 1 — that is the foundation everything else rests on.</aside>
-  </section>
-
-  <!-- 2 ─────────────────────────────── THE ASK -->
-  <section class="slide" data-title="The ask">
-    <div class="eyebrow">The request</div>
-    <h2>A 20% extension, and a matching transfer ceiling</h2>
-    <p class="lead">Not a new relationship and not a new risk profile — a scaling request against a plan this bank has already underwritten.</p>
-    <div class="stat-row push">
-      <div class="stat frag"><div class="k ph">[Current $]</div><div class="l">Current limit</div></div>
-      <div class="stat frag"><div class="k ph">[New $]</div><div class="l">Requested limit</div></div>
-      <div class="stat frag"><div class="k">+20%</div><div class="l">Extension</div></div>
-      <div class="stat frag"><div class="k ph">[DSCR]</div><div class="l">Debt service coverage</div></div>
+    <div style="flex:1;display:flex;flex-direction:column;min-height:0">
+      <h4>Speaker notes</h4>
+      <div class="note" data-note></div>
     </div>
-    <aside class="notes">Say the number early and plainly. Burying the ask reads as evasive to a credit audience. The four figures reveal one at a time — pause on DSCR.</aside>
-  </section>
+    <div class="next" data-next></div>
+  </aside>
 
-  <!-- 3 ─────────────────────────────── PROBLEM -->
-  <section class="slide" data-title="The problem">
-    <div class="eyebrow">The problem we solve</div>
-    <h2>Flat commissions break remote routes</h2>
-    <div class="cols fill">
-      <ul class="points">
-        <li class="frag">Under a flat commission, a driver earns materially less on a low-density route than on a dense urban one.</li>
-        <li class="frag">So drivers decline and cancel those trips.</li>
-        <li class="frag">Riders outside the core grid get unreliable service.</li>
-        <li class="frag">The platform quietly loses the demand it cannot serve.</li>
-      </ul>
-      <div class="quote frag">The incentive to refuse the hard route is built into the pricing.</div>
+  <div id="help">
+    <div class="panel">
+      <h3>Keyboard</h3>
+      <table>
+        <tr>
+          <td><kbd>&rarr;</kbd> <kbd>Space</kbd></td>
+          <td>Next step / slide</td>
+        </tr>
+        <tr>
+          <td><kbd>&larr;</kbd></td>
+          <td>Previous</td>
+        </tr>
+        <tr>
+          <td><kbd>1</kbd>–<kbd>9</kbd></td>
+          <td>Jump to slide</td>
+        </tr>
+        <tr>
+          <td><kbd>O</kbd></td>
+          <td>Overview grid</td>
+        </tr>
+        <tr>
+          <td><kbd>S</kbd></td>
+          <td>Speaker notes + timer</td>
+        </tr>
+        <tr>
+          <td><kbd>T</kbd></td>
+          <td>Light / dark</td>
+        </tr>
+        <tr>
+          <td><kbd>F</kbd></td>
+          <td>Fullscreen</td>
+        </tr>
+        <tr>
+          <td><kbd>R</kbd></td>
+          <td>Reset timer</td>
+        </tr>
+        <tr>
+          <td><kbd>?</kbd> <kbd>Esc</kbd></td>
+          <td>Toggle / close</td>
+        </tr>
+      </table>
     </div>
-    <aside class="notes">This is a structural failure, not an execution failure — that framing matters, because structural problems have structural fixes a lender can underwrite.</aside>
-  </section>
+  </div>
 
-  <!-- 4 ─────────────────────────────── MECHANISM -->
-  <section class="slide" data-title="The mechanism">
-    <div class="eyebrow">The mechanism</div>
-    <h2>A platform fee that moves with route density</h2>
-    <p class="lead" style="margin-bottom:28px">Averaging <strong>5%</strong> — lower on the routes that are hardest to serve, higher where volume is dense.</p>
-    <svg viewBox="0 0 900 210" style="width:100%">
-      <line x1="60" y1="170" x2="860" y2="170" stroke="var(--line)" stroke-width="1.5"/>
-      <line x1="60" y1="24"  x2="60"  y2="170" stroke="var(--line)" stroke-width="1.5"/>
-      <polyline points="60,142 250,124 470,95 690,66 860,52"
-                fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
-      <circle cx="60"  cy="142" r="6" fill="var(--accent)"/>
-      <circle cx="860" cy="52"  r="6" fill="var(--accent)"/>
-      <text x="60"  y="196" font-size="14" fill="var(--ink-faint)" font-family="Inter">Remote / low density</text>
-      <text x="726" y="196" font-size="14" fill="var(--ink-faint)" font-family="Inter">Urban / high density</text>
-      <text x="80"  y="134" font-size="14" fill="var(--ink-soft)"  font-family="Inter">lower platform fee</text>
-      <text x="700" y="40"  font-size="14" fill="var(--ink-soft)"  font-family="Inter">higher platform fee</text>
-    </svg>
-    <p class="frag" style="margin-top:16px">Driver take-home is levelled across route types, so the reason to refuse a remote trip is removed at the source.</p>
-    <aside class="notes">The curve is illustrative, not fitted data — say so if asked. The point is direction, not slope.</aside>
-  </section>
+  <div id="stage">
 
-  <!-- 5 ─────────────────────────────── WHY A LENDER CARES -->
-  <section class="slide" data-title="Why a lender cares">
-    <div class="eyebrow">Why this matters to a lender</div>
-    <h2>Stability, not upside</h2>
-    <div class="cols-3">
-      <div class="card frag"><div class="num">01</div><h3>Supply is retained</h3><p>Drivers stay available across route types, which sustains fulfilment.</p></div>
-      <div class="card frag"><div class="num">02</div><h3>Volume is predictable</h3><p>Sustained fulfilment means transaction volume does not swing with geography.</p></div>
-      <div class="card frag"><div class="num">03</div><h3>Margin is stabilised</h3><p>A fee that floats around 5% rather than spiking produces steady revenue per trip.</p></div>
-    </div>
-    <div class="rule"></div>
-    <p class="frag"><strong>A volume-and-reliability model, not a high-variance one</strong> — the profile a lender should prefer.</p>
-    <aside class="notes">Resist pitching growth here. Bankers underwrite downside. Stability is the stronger claim with this audience.</aside>
-  </section>
-
-  <!-- 6 ─────────────────────────────── STATUS -->
-  <section class="slide" data-title="Phase status">
-    <div class="eyebrow">Status</div>
-    <h2>Phase 1 is complete. Phase 2 is compute.</h2>
-    <div class="cols fill">
-      <div class="card">
-        <h3 style="color:var(--accent)">Phase 1 — done</h3>
-        <p>Core software architecture finalised. Facility used as underwritten. Unit economics evaluated and approved by this bank.</p>
+    <!-- ══ 1 ══ TITLE — hero focal centre, logo as the focal point ══ -->
+    <section class="slide slide--title" data-title="Title">
+      <div class="hero">
+        <div class="mark"><img src="assets/mark.svg" alt="Talaria" style="width:100%;height:100%"></div>
+        <div class="eyebrow">Talaria Technologies · AI Operations</div>
+        <h1>Design the ceiling.<br>Then remove what you don't need.</h1>
+        <p class="lead" style="margin-top:26px">A top-down prompt architecture for company-wide AI adoption</p>
       </div>
-      <div class="card is-highlight frag">
-        <h3 style="color:var(--accent)">Phase 2 — beginning</h3>
-        <p>Parameter training and real-time mapping simulation on cloud GPU banks. Approx. <span class="ph">[Insert $/month]</span> across <span class="ph">[Insert N]</span> environments.</p>
+      <div class="meta">
+        <span class="ph">[Presenter Name]</span>
+        <span class="ph">[Date]</span>
       </div>
-    </div>
-    <aside class="notes">Emphasise "as underwritten" — the facility was used exactly as modelled. That earns the right to ask for more.</aside>
-  </section>
+      <aside class="notes">Open on the contrast, not the agenda. Most people build prompts upward from nothing. We build
+        downward from a complete specification. Everything in this deck follows from that one reversal.</aside>
+    </section>
 
-  <!-- 7 ─────────────────────────────── WORKLOAD -->
-  <section class="slide" data-title="Phase 2 workload">
-    <div class="eyebrow">Phase 2 workload</div>
-    <h2>Two jobs, both GPU-bound</h2>
-    <ul class="points">
-      <li class="frag"><strong>Parameter training.</strong> The dynamic fee is only defensible if it is accurate — trained against historical route density, cancellation behaviour, driver earnings distributions and demand seasonality.</li>
-      <li class="frag"><strong>Real-time mapping simulation.</strong> Pricing logic is validated against simulated network conditions — traffic, surge, supply shocks, edge-case routes — before any driver or rider sees it.</li>
-    </ul>
-    <aside class="notes">Keep this short. The technical detail is credibility, not the argument. Do not let a banker's eyes glaze here.</aside>
-  </section>
+    <!-- ══ 2 ══ THE SPECTRUM — split 50/50 comparison ══ -->
+    <section class="slide" data-title="The spectrum">
+      <div class="eyebrow">The prompting spectrum</div>
+      <h2>Two directions of travel</h2>
+      <div class="cols fill" style="gap:32px">
+        <div class="panel panel--bad">
+          <div class="tag">Status quo · Undershooting</div>
+          <h3>Start vague.<br>Build up.</h3>
+          <ul class="flow">
+            <li><span class="arrow">1</span><span>Vague opening prompt</span></li>
+            <li><span class="arrow">2</span><span>Inductive patching, turn by turn</span></li>
+            <li><span class="arrow">3</span><span><b>Context drift</b></span></li>
+            <li><span class="arrow">4</span><span>Rework and wasted turns</span></li>
+          </ul>
+        </div>
+        <div class="panel panel--good frag">
+          <div class="tag">Strategic · Deductive</div>
+          <h3>Start complete.<br>Cut down.</h3>
+          <ul class="flow">
+            <li><span class="arrow">1</span><span>High-density master prompt</span></li>
+            <li><span class="arrow">2</span><span>Lock the constraints</span></li>
+            <li><span class="arrow">3</span><span><b>Distil to the task</b></span></li>
+            <li><span class="arrow">4</span><span>Controlled execution</span></li>
+          </ul>
+        </div>
+      </div>
+      <aside class="notes">Same model, same person, opposite direction. Undershooting negotiates with the model.
+        Deductive prompting instructs it. Ask the room which one they did this morning.</aside>
+    </section>
 
-  <!-- 8 ─────────────────────────────── BOTTLENECK (key slide) -->
-  <section class="slide" data-title="The constraint">
-    <div class="eyebrow">The constraint</div>
-    <h2>Transfer velocity, not solvency</h2>
-    <div class="cols fill">
+    <!-- ══ 3 ══ WHY IT FAILS — hero statement + drift diagram ══ -->
+    <section class="slide" data-title="Context drift">
+      <div class="eyebrow">Why undershooting fails</div>
+      <h2>Every correction adds a contradiction</h2>
+      <svg viewBox="0 0 1000 250" style="width:100%;margin:8px 0 4px">
+        <line x1="40" y1="210" x2="960" y2="210" stroke="var(--line)" stroke-width="2" />
+        <text x="40" y="243" font-size="19" fill="var(--ink-faint)">Turn 1</text>
+        <text x="960" y="243" font-size="19" fill="var(--ink-faint)" text-anchor="end">Turn 8</text>
+        <line x1="40" y1="70" x2="960" y2="70" stroke="var(--accent)" stroke-width="4" stroke-linecap="round" />
+        <text x="960" y="50" font-size="22" fill="var(--accent)" font-weight="600" text-anchor="end">Deductive: on
+          target</text>
+        <path d="M40 70 C 260 78, 420 118, 560 146 S 830 188, 960 196" fill="none" stroke="var(--ink-faint)"
+          stroke-width="4" stroke-dasharray="9 8" stroke-linecap="round" />
+        <text x="430" y="196" font-size="22" fill="var(--ink-soft)">Inductive: drifting</text>
+      </svg>
       <ul class="points">
-        <li class="frag">GPU capacity is procured on demand, billed on short usage-based cycles.</li>
-        <li class="frag">Outflows are high-frequency and unevenly distributed — not a smooth monthly draft.</li>
-        <li class="frag">Our daily ceiling was set against an even, development-stage burn rate.</li>
-        <li class="frag">Training runs now stall waiting on settlement rather than on capital.</li>
+        <li class="frag">Each patch is written against the <b>last output</b>, not the original intent.</li>
+        <li class="frag">Constraints added late silently overwrite constraints added early.</li>
       </ul>
-      <div class="quote frag">The ratios are unchanged. What is misaligned is the shape of the facility against the shape of the spend.</div>
-    </div>
-    <aside class="notes">THE critical slide. A transfer-limit complaint can read as a liquidity warning. Name the misreading out loud before they reach it themselves.</aside>
-  </section>
+      <aside class="notes">The failure is structural, not a skill gap. By turn six nobody in the thread can say what the
+        governing constraint actually is — including the model.</aside>
+    </section>
 
-  <!-- 9 ─────────────────────────────── CONSOLIDATION -->
-  <section class="slide" data-title="One account">
-    <div class="eyebrow">A deliberate choice</div>
-    <h2>One account, on purpose</h2>
-    <p class="lead" style="margin-bottom:26px">We could relieve this pressure by spreading activity across institutions. We have declined to.</p>
-    <div class="cols-3">
-      <div class="card frag"><h3>Transparency</h3><p>One unbroken transaction record, no reconciliation gaps.</p></div>
-      <div class="card frag"><h3>Compliance</h3><p>A single reporting perimeter for tax and regulatory filing.</p></div>
-      <div class="card frag"><h3>Auditability</h3><p>One consolidated ledger rather than parallel histories.</p></div>
-    </div>
-    <div class="rule"></div>
-    <p class="frag">Your credit team keeps continuous visibility into our full cash position. Fragmenting our banking would degrade that for both of us.</p>
-    <aside class="notes">Frame consolidation as their benefit, never our convenience. If asked why not a second bank — answer with visibility, not with tax.</aside>
-  </section>
+    <!-- ══ 4 ══ THE METHOD — 4-step ribbon ══ -->
+    <section class="slide" data-title="The method">
+      <div class="eyebrow">Deductive prompting</div>
+      <h2>Overshoot, then subtract</h2>
+      <div class="steps">
+        <div class="step frag">
+          <div class="n">01</div>
+          <h3>Overshoot</h3>
+          <p>Write the master prompt: role, audience, constraints, format, tone, and what to leave out.</p>
+        </div>
+        <div class="step frag">
+          <div class="n">02</div>
+          <h3>Constrain</h3>
+          <p>Mark what must not change. These survive every derivative prompt.</p>
+        </div>
+        <div class="step frag">
+          <div class="n">03</div>
+          <h3>Distil</h3>
+          <p>Strip everything this task does not need. Subtraction is cheap; recovery is not.</p>
+        </div>
+        <div class="step frag">
+          <div class="n">04</div>
+          <h3>Execute</h3>
+          <p>One pass. Review against the master, not against the last reply.</p>
+        </div>
+      </div>
+      <aside class="notes">Overshooting control is the point. It is far easier to delete a constraint you wrote
+        deliberately than to discover one you never set.</aside>
+    </section>
 
-  <!-- 10 ────────────────────────────── OFFER -->
-  <section class="slide" data-title="The offer">
-    <div class="eyebrow">What we are prepared to offer</div>
-    <h2>We will share the cost of speed</h2>
-    <ul class="points">
-      <li class="frag"><strong>Adjusted maintenance fees or interest margin</strong> in exchange for an expedited review.</li>
-      <li class="frag"><strong>Tiered drawdown</strong> — the incremental tranche released against defined Phase 2 milestones.</li>
-      <li class="frag"><strong>Enhanced reporting</strong> — monthly compute reconciliation and updated coverage ratios.</li>
-      <li class="frag"><strong>Scheduled review at Phase 2 completion</strong>, re-sizing the facility against demonstrated results.</li>
-    </ul>
-    <aside class="notes">Do not name a rate premium out loud. Whatever number you say first becomes the floor of the negotiation.</aside>
-  </section>
+    <!-- ══ 5 ══ CASE STUDY — split, real evidence ══ -->
+    <section class="slide" data-title="Case study">
+      <div class="eyebrow">Case study · Talaria credit facility</div>
+      <h2>One context load, three deliverables</h2>
+      <div class="cols fill v-center" style="gap:44px">
+        <div>
+          <h3 style="color:var(--accent);margin-bottom:18px">The master prompt carried</h3>
+          <ul class="points" style="gap:12px">
+            <li style="font-size:23px">Company, product and business model</li>
+            <li style="font-size:23px">Audience: a risk-averse credit reader</li>
+            <li style="font-size:23px">The ask, the leverage, the concessions</li>
+            <li style="font-size:23px">Tone, length, and named omissions</li>
+          </ul>
+        </div>
+        <div class="frag">
+          <h3 style="color:var(--accent);margin-bottom:18px">What came out</h3>
+          <ul class="points" style="gap:12px">
+            <li style="font-size:23px">Three letter variants — concise, expanded, full-block</li>
+            <li style="font-size:23px">Three formatted Word documents</li>
+            <li style="font-size:23px">A slide deck, from the same context</li>
+            <li style="font-size:23px"><b>The argument was never rebuilt.</b></li>
+          </ul>
+        </div>
+      </div>
+      <aside class="notes">This is our own evidence, not a vendor case study. The format changed three times. The
+        reasoning was authored once, because it was specified before the first draft existed.</aside>
+    </section>
 
-  <!-- 11 ────────────────────────────── CLOSE -->
-  <section class="slide" data-title="Next steps">
-    <div class="eyebrow">Next steps</div>
-    <h2>The package is ready</h2>
-    <p class="lead">Updated statements, Phase 2 compute forecast, revised twelve-month projections and Phase 1 facility performance — deliverable within <span class="ph">[Insert N]</span> business days.</p>
-    <div class="rule"></div>
-    <p class="frag">Phase 1 rested on this bank's willingness to underwrite a model that was then unproven. It is now proven. This request asks only that the facility be kept sized to the business it supports.</p>
-    <aside class="notes">End on the closing line of the letter. Then stop talking and let them respond.</aside>
-  </section>
+    <!-- ══ 6 ══ OPERATIONAL IMPACT — 3-column cards ══ -->
+    <section class="slide" data-title="Operational impact">
+      <div class="eyebrow">Operational impact</div>
+      <h2>Control without a bottleneck</h2>
+      <div class="cols-3 fill" style="align-content:center">
+        <div class="card frag">
+          <div class="num">01</div>
+          <h3>Responsibility</h3>
+          <p>Standardised inputs make output governable. What the model was told is auditable after the fact.</p>
+        </div>
+        <div class="card frag">
+          <div class="num">02</div>
+          <h3>Empowerment</h3>
+          <p>Teams inherit the context. No one needs to be a prompt engineer to get a compliant result.</p>
+        </div>
+        <div class="card frag">
+          <div class="num">03</div>
+          <h3>Flexibility</h3>
+          <p>Departments tune parameters, not principles. The core constraints hold across every unit.</p>
+        </div>
+      </div>
+      <aside class="notes">The usual trade-off is control versus speed. A master prompt removes it: the control lives in
+        the artefact, so the team does not have to carry it.</aside>
+    </section>
 
-  <!-- 12 ────────────────────────────── DIVIDER -->
-  <section class="slide slide--divider" data-title="Part two">
-    <div class="eyebrow">Part two</div>
-    <h2>How the argument was built</h2>
-    <aside class="notes">Shift register here — you stop being the CEO and start being the writer analysing the choices.</aside>
-  </section>
+    <!-- ══ 7 ══ METRICS — large callouts ══ -->
+    <section class="slide" data-title="Improvements">
+      <div class="eyebrow">Noteworthy improvements</div>
+      <h2>What changed, measured</h2>
+      <div class="metrics">
+        <div class="metric frag">
+          <div class="v ph">[&nbsp;&nbsp;&nbsp;]%</div>
+          <div class="l">Fewer revision loops per deliverable</div>
+        </div>
+        <div class="metric frag">
+          <div class="v ph">[&nbsp;&nbsp;&nbsp;]%</div>
+          <div class="l">Faster to first usable draft</div>
+        </div>
+        <div class="metric frag">
+          <div class="v">3</div>
+          <div class="l">Deliverable formats from one context load</div>
+        </div>
+        <div class="metric frag">
+          <div class="v">0</div>
+          <div class="l">Arguments rebuilt from scratch</div>
+        </div>
+      </div>
+      <p style="font-size:19px;color:var(--ink-faint)">Bracketed figures to be confirmed against Q3 workflow logs. The
+        right-hand pair are observed from the credit-facility project.</p>
+      <aside class="notes">Be straight about which numbers are measured and which are pending. A metric you cannot
+        source is worse than no metric with this audience.</aside>
+    </section>
 
-  <!-- 13 ────────────────────────────── STRATEGY -->
-  <section class="slide" data-title="Persuasive strategy">
-    <div class="eyebrow">Persuasive strategy</div>
-    <h2>Four moves, one audience</h2>
-    <div class="cols-4">
-      <div class="card frag"><div class="num">01</div><h3>Continuity over novelty</h3><p>Framed as scaling an approved plan, not a new ask — lowers perceived risk.</p></div>
-      <div class="card frag"><div class="num">02</div><h3>Name the misreading</h3><p>States it is velocity, not solvency, before the reader can conclude otherwise.</p></div>
-      <div class="card frag"><div class="num">03</div><h3>Reframe self-interest</h3><p>Consolidation presented as the bank's visibility, not our convenience.</p></div>
-      <div class="card frag"><div class="num">04</div><h3>Offer constraint</h3><p>Volunteered safeguards persuade a committee more than a higher rate does.</p></div>
-    </div>
-    <aside class="notes">Each move maps to a specific reader anxiety. Ask the class which anxiety each one answers.</aside>
-  </section>
+    <!-- ══ 8 ══ CENTRE ALIGNMENT — concentric radial ══ -->
+    <section class="slide" data-title="Centre alignment">
+      <div class="eyebrow">Strategic alignment</div>
+      <h2>The engine sits at the centre</h2>
+      <svg viewBox="0 0 1060 430" style="width:100%;flex:1">
+        <ellipse cx="530" cy="215" rx="415" ry="175" fill="none" stroke="var(--line)" stroke-width="2"
+          stroke-dasharray="6 9" />
+        <ellipse cx="530" cy="215" rx="270" ry="112" fill="none" stroke="var(--line)" stroke-width="2" />
+        <circle cx="530" cy="215" r="104" fill="var(--accent)" />
+        <text x="530" y="208" text-anchor="middle" font-size="19" font-weight="700" fill="#fff"
+          letter-spacing="0.5">PROMPT</text>
+        <text x="530" y="232" text-anchor="middle" font-size="19" font-weight="700" fill="#fff"
+          letter-spacing="0.5">ARCHITECTURE</text>
 
-  <!-- 14 ────────────────────────────── OMISSIONS -->
-  <section class="slide" data-title="Omissions">
-    <div class="eyebrow">Deliberate omissions</div>
-    <h2>What was left out, and why</h2>
-    <ul class="points">
-      <li class="frag"><strong>The threat to move banks.</strong> Coercive mid-relationship; triggers committee caution rather than speed. Implied once, softly, instead.</li>
-      <li class="frag"><strong>A named 15% premium.</strong> Stating a number first makes it the floor of the negotiation, not the ceiling.</li>
-      <li class="frag"><strong>Urgency language.</strong> "Detrimental to our progress" reads as distress to a risk-aware reader; the cost of delay is shown concretely instead.</li>
-    </ul>
-    <aside class="notes">Strongest slide for a writing class — persuasion is as much about restraint as about argument.</aside>
-  </section>
+        <g font-size="21" font-weight="600" fill="var(--ink)" text-anchor="middle">
+          <circle cx="530" cy="40" r="7" fill="var(--accent)" /><text x="530" y="26">Product</text>
+          <circle cx="890" cy="130" r="7" fill="var(--accent)" /><text x="905" y="112">Engineering</text>
+          <circle cx="890" cy="300" r="7" fill="var(--accent)" /><text x="905" y="336">Legal &amp; Risk</text>
+          <circle cx="530" cy="390" r="7" fill="var(--accent)" /><text x="530" y="420">Operations</text>
+          <circle cx="170" cy="300" r="7" fill="var(--accent)" /><text x="155" y="336">Support</text>
+          <circle cx="170" cy="130" r="7" fill="var(--accent)" /><text x="155" y="112">Marketing</text>
+        </g>
+        <g stroke="var(--accent)" stroke-width="2" opacity=".35">
+          <line x1="530" y1="111" x2="530" y2="47" />
+          <line x1="620" y1="163" x2="883" y2="134" />
+          <line x1="620" y1="267" x2="883" y2="296" />
+          <line x1="530" y1="319" x2="530" y2="383" />
+          <line x1="440" y1="267" x2="177" y2="296" />
+          <line x1="440" y1="163" x2="177" y2="134" />
+        </g>
+      </svg>
+      <aside class="notes">Centre-aligned, not top-down in the org-chart sense. Every unit is the same distance from the
+        core, so no team inherits a degraded copy of the standard.</aside>
+    </section>
 
-</div>
+    <!-- ══ 9 ══ ADOPTION — three phases ══ -->
+    <section class="slide" data-title="Adoption">
+      <div class="eyebrow">Adoption model</div>
+      <h2>Govern the core, not the forks</h2>
+      <div class="steps" style="grid-template-columns:repeat(3,1fr)">
+        <div class="step frag">
+          <div class="n">PHASE 1</div>
+          <h3>Author</h3>
+          <p>One master prompt per work category, owned centrally and version-controlled.</p>
+        </div>
+        <div class="step frag">
+          <div class="n">PHASE 2</div>
+          <h3>Fork</h3>
+          <p>Units distil their own variants. Parameters are theirs; constraints are not.</p>
+        </div>
+        <div class="step frag">
+          <div class="n">PHASE 3</div>
+          <h3>Review</h3>
+          <p>Audit outputs against the master. Amend the core once; every fork inherits it.</p>
+        </div>
+      </div>
+      <aside class="notes">Policing individual prompts does not scale. Governing one artefact that every prompt descends
+        from does.</aside>
+    </section>
 
-<!-- Guard: ES modules cannot load over file://. Classic script, runs everywhere. -->
-<script>
-if (location.protocol === 'file:') {
-  document.write('<div id="modwarn"><div class="box"><h2>Run this through a local server</h2>' +
-    '<p>This deck uses ES modules, which browsers block on <code>file://</code>.</p>' +
-    '<p style="margin-top:12px">In VS Code: install <b>Live Server</b>, then right-click <code>index.html</code> &rarr; <b>Open with Live Server</b>.</p>' +
-    '<p style="margin-top:12px">Or from this folder: <code>npx serve</code> / <code>python -m http.server</code></p></div></div>');
-}
-</script>
+    <!-- ══ 10 ══ CLOSE — statement ══ -->
+    <section class="slide slide--statement" data-title="Close">
+      <div class="eyebrow">The thesis</div>
+      <div class="quote" style="margin-bottom:36px">Undershooting is not a skill problem.<br>It is a direction problem.
+      </div>
+      <p class="lead">Specify the ceiling once. Everything after that is subtraction.</p>
+      <aside class="notes">Land it and stop. Do not add a summary slide — the sentence is the summary.</aside>
+    </section>
 
-<script type="module" src="js/main.js"></script>
+  </div>
+
+  <script>
+    if (location.protocol === 'file:') {
+      document.write('<div id="modwarn"><div class="box"><h2>Run this through a local server</h2>' +
+        '<p>This deck uses ES modules, which browsers block on <code>file://</code>.</p>' +
+        '<p style="margin-top:12px">In VS Code: install <b>Live Server</b>, then right-click <code>index.html</code> &rarr; <b>Open with Live Server</b>.</p>' +
+        '<p style="margin-top:12px">Or from this folder: <code>npx serve</code> / <code>python -m http.server</code></p></div></div>');
+    }
+  </script>
+  <script type="module" src="js/main.js"></script>
 </body>
+
 </html>

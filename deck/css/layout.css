@@ -30,6 +30,8 @@
 
 /* ---- grid helpers ---- */
 .cols   {display:grid;grid-template-columns:1fr 1fr;gap:40px;align-content:start}
+.cols.fill{align-content:stretch;grid-auto-rows:minmax(0,1fr)}
+.cols.v-center{align-items:center}
 .cols-3 {display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap)}
 .cols-4 {display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap)}
 .fill   {flex:1}
