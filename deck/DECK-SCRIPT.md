@@ -1,6 +1,6 @@
 # Deductive Prompt Architecture — Deck Script & Layout Plan
 
-**Deck:** `deck/index.html` (13 slides) · **Company:** Talaria Technologies Inc.
+**Deck:** `deck/index.html` (12 slides) · **Company:** Talaria Technologies Inc.
 **Palette:** sampled from `assets/logo.svg` — Talaria blue `#1E7BFF`, navy `#1C2333`, paper `#F7F8FA`
 **Type:** Fraunces (display) / Inter (body) · minimum on-slide size 21px at 1280×720 — legible from the back of a room
 
@@ -50,25 +50,9 @@
 
 ---
 
-## Slide 4 — Overshoot, then subtract
+## Slide 4 — One context load, three deliverables
 
-**Layout** Four-column step ribbon, vertically centred, hairline rules between columns.
-
-**Visual direction** Monospace step numerals in blue above each heading — the only monospace in the deck, marking this as the procedural slide. Columns reveal one at a time, left to right, so the method is walked rather than read.
-
-**Body**
-1. **Overshoot** — Write the master prompt: role, audience, constraints, format, tone, and what to leave out.
-2. **Constrain** — Mark what must not change. These survive every derivative prompt.
-3. **Distil** — Strip everything this task does not need. Subtraction is cheap; recovery is not.
-4. **Execute** — One pass. Review against the master, not against the last reply.
-
-**Presenter notes** Overshooting control is the point. It is far easier to delete a constraint you wrote deliberately than to discover one you never set.
-
----
-
-## Slide 5 — One context load, three deliverables
-
-**Layout** Split 50/50, vertically centred. Input on the left, output on the right, right side revealed on a keypress.
+**Layout** Split 50/50, vertically centred. Input on the left, output on the right.
 
 **Visual direction** No diagram. Two blue sub-headings over matched bullet lists, so the eye reads it as a ledger: what went in, what came out. Final bullet bold — it is the claim, not an item.
 
@@ -80,11 +64,11 @@
 
 ---
 
-## Slide 6 — What we asked for, twice
+## Slide 5 — What we asked for, twice
 
 **Layout** Two-row comparison grid. Row one holds the two prompt excerpts at equal height with their tops aligned; row two holds a one-line takeaway under each.
 
-**Visual direction** Both excerpts sit in dark, monospaced cards so they read unmistakably as *input* rather than prose. Rust label chips; the specified elements of the final prompt picked out in Talaria blue. The right-hand card and its takeaway reveal on separate keypresses.
+**Visual direction** Both excerpts sit in dark, monospaced cards so they read unmistakably as *input* rather than prose. Rust label chips; the specified elements of the final prompt picked out in Talaria blue.
 
 **Body**
 - **First pass · raw context** — "We have to convince a bank to increase our credit line… we will be borrowing GPUs for testing our new mapping product, the current credit line won't allow sufficient funds transfers… We are willing to pay an extra 15%."
@@ -96,7 +80,7 @@
 
 ---
 
-## Slide 7 — Same argument, sharper instrument
+## Slide 6 — Same argument, sharper instrument
 
 **Layout** Identical two-row grid to slide 6, so the eye maps input directly onto output.
 
@@ -112,7 +96,7 @@
 
 ---
 
-## Slide 8 — Three axes, one direction
+## Slide 7 — Three axes, one direction
 
 **Layout** Comparison table. A narrow axis column on the left, then First pass and Final pass columns, three rows divided by hairlines.
 
@@ -130,11 +114,11 @@
 
 ---
 
-## Slide 9 — Control without a bottleneck
+## Slide 8 — Control without a bottleneck
 
 **Layout** 3-column card layout, vertically centred.
 
-**Visual direction** Equal white cards, hairline borders, large blue numerals. Identical weight across all three — none of the pillars is subordinate. Cards reveal left to right.
+**Visual direction** Equal white cards, hairline borders, large blue numerals. Identical weight across all three — none of the pillars is subordinate.
 
 **Body**
 - **01 Responsibility** — Standardised inputs make output governable. What the model was told is auditable after the fact.
@@ -145,7 +129,7 @@
 
 ---
 
-## Slide 10 — What changed, measured
+## Slide 9 — What changed, measured
 
 **Layout** Four large metric callouts in a row, each on a blue left rule. Sourcing footnote at the base.
 
@@ -162,7 +146,7 @@
 
 ---
 
-## Slide 11 — The engine sits at the centre
+## Slide 10 — The engine sits at the centre
 
 **Layout** Concentric radial diagram, full bleed within the content area.
 
@@ -174,7 +158,7 @@
 
 ---
 
-## Slide 12 — Govern the core, not the forks
+## Slide 11 — Govern the core, not the forks
 
 **Layout** Three-phase step ribbon, hairline rules between phases.
 
@@ -189,7 +173,7 @@
 
 ---
 
-## Slide 13 — The thesis
+## Slide 12 — The thesis
 
 **Layout** Statement slide. Left-aligned, vertically centred, nothing else on the surface.
 
@@ -206,5 +190,7 @@ Specify the ceiling once. Everything after that is subtraction.
 
 ## Running the deck
 
-Serve the folder (VS Code → Live Server), then: `→` next step · `O` overview · `S` speaker notes + timer · `T` light/dark · `F` fullscreen · `?` all keys.
+Step-by-step reveals are switched off: every element on a slide is visible as soon as the slide is, and the slide itself fades in over 0.16s. `→` therefore always means *next slide*.
+
+Serve the folder (VS Code → Live Server), then: `→` next slide · `O` overview · `S` speaker notes + timer · `T` light/dark · `F` fullscreen · `?` all keys.
 Ctrl/Cmd+P exports one slide per page with every reveal expanded.

@@ -21,12 +21,46 @@
 }
 .slide.is-active{display:flex}
 
-/* entrance animation, suppressed in overview and print */
-.slide.is-active > *{animation:rise .34s var(--ease) both}
-.slide.is-active > *:nth-child(2){animation-delay:.04s}
-.slide.is-active > *:nth-child(3){animation-delay:.08s}
-.slide.is-active > *:nth-child(4){animation-delay:.12s}
-@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+/* One animation per slide — the whole slide moves as a single piece,
+   entering from the side you are travelling towards. Nothing inside a
+   slide animates independently, so no element is ever hidden or late. */
+.slide.is-active[data-dir="fwd"] {animation:enter-fwd  .38s var(--ease) both}
+.slide.is-active[data-dir="back"]{animation:enter-back .38s var(--ease) both}
+
+@keyframes enter-fwd{
+  from{opacity:0;transform:translateX(34px) scale(.995)}
+  to  {opacity:1;transform:none}
+}
+@keyframes enter-back{
+  from{opacity:0;transform:translateX(-34px) scale(.995)}
+  to  {opacity:1;transform:none}
+}
+
+/* Minimal in-page motion: the slide's top-level blocks settle in with a
+   small lift and a very short offset. Nothing is hidden waiting for a
+   keypress — the whole cascade is over in under half a second. */
+.slide.is-active > *{animation:settle .3s var(--ease) both}
+.slide.is-active > *:nth-child(1){animation-delay:.05s}
+.slide.is-active > *:nth-child(2){animation-delay:.10s}
+.slide.is-active > *:nth-child(3){animation-delay:.15s}
+.slide.is-active > *:nth-child(4){animation-delay:.19s}
+.slide.is-active > *:nth-child(n+5){animation-delay:.22s}
+
+@keyframes settle{
+  from{opacity:0;transform:translateY(8px)}
+  to  {opacity:1;transform:none}
+}
+
+/* Thumbnails in the overview grid are stills, never animated. */
+#overview .thumb .inner,
+#overview .thumb .inner > *{animation:none!important}
+
+/* Anyone who has asked their system for less motion gets a plain cut. */
+@media (prefers-reduced-motion: reduce){
+  .slide.is-active[data-dir]{animation:fade-only .2s linear both}
+  .slide.is-active > *{animation:none}
+  @keyframes fade-only{from{opacity:0}to{opacity:1}}
+}
 
 /* ---- grid helpers ---- */
 .cols   {display:grid;grid-template-columns:1fr 1fr;gap:40px;align-content:start}

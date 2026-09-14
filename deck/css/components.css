@@ -42,9 +42,11 @@ ul.points li::before{
   border-left:3px solid var(--accent);padding-left:28px;max-width:24ch;
 }
 
-/* ---- fragments: elements revealed one keypress at a time ---- */
-.frag{opacity:.12;transition:opacity .28s var(--ease),transform .28s var(--ease);transform:translateY(4px)}
-.frag.is-shown{opacity:1;transform:none}
+/* ---- fragments ----
+   Step-by-step reveals are switched off: nothing on a slide is hidden.
+   Add class="frag" to an element to bring the behaviour back for it. */
+.frag{opacity:.14;transition:opacity .2s var(--ease)}
+.frag.is-shown{opacity:1}
 
 /* speaker notes never render on the slide itself */
 .notes{display:none}

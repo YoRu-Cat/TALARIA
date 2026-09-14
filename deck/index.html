@@ -13,13 +13,13 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600&family=JetBrains+Mono:wght@400;500&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="css/tokens.css?v=2">
-  <link rel="stylesheet" href="css/base.css?v=2">
-  <link rel="stylesheet" href="css/layout.css?v=2">
-  <link rel="stylesheet" href="css/components.css?v=2">
-  <link rel="stylesheet" href="css/slides.css?v=2">
-  <link rel="stylesheet" href="css/overlays.css?v=2">
-  <link rel="stylesheet" href="css/print.css?v=2">
+  <link rel="stylesheet" href="css/tokens.css?v=5">
+  <link rel="stylesheet" href="css/base.css?v=5">
+  <link rel="stylesheet" href="css/layout.css?v=5">
+  <link rel="stylesheet" href="css/components.css?v=5">
+  <link rel="stylesheet" href="css/slides.css?v=5">
+  <link rel="stylesheet" href="css/overlays.css?v=5">
+  <link rel="stylesheet" href="css/print.css?v=5">
 </head>
 
 <body>
@@ -121,7 +121,7 @@
             <li><span class="arrow">4</span><span>Rework and wasted turns</span></li>
           </ul>
         </div>
-        <div class="panel panel--good frag">
+        <div class="panel panel--good">
           <div class="tag">Strategic · Deductive</div>
           <h3>Start complete.<br>Cut down.</h3>
           <ul class="flow">
@@ -152,44 +152,14 @@
         <text x="430" y="196" font-size="22" fill="var(--ink-soft)">Inductive: drifting</text>
       </svg>
       <ul class="points">
-        <li class="frag">Each patch is written against the <b>last output</b>, not the original intent.</li>
-        <li class="frag">Constraints added late silently overwrite constraints added early.</li>
+        <li>Each patch is written against the <b>last output</b>, not the original intent.</li>
+        <li>Constraints added late silently overwrite constraints added early.</li>
       </ul>
       <aside class="notes">The failure is structural, not a skill gap. By turn six nobody in the thread can say what the
         governing constraint actually is — including the model.</aside>
     </section>
 
-    <!-- ══ 4 ══ THE METHOD — 4-step ribbon ══ -->
-    <section class="slide" data-title="The method">
-      <div class="eyebrow">Deductive prompting</div>
-      <h2>Overshoot, then subtract</h2>
-      <div class="steps">
-        <div class="step frag">
-          <div class="n">01</div>
-          <h3>Overshoot</h3>
-          <p>Write the master prompt: role, audience, constraints, format, tone, and what to leave out.</p>
-        </div>
-        <div class="step frag">
-          <div class="n">02</div>
-          <h3>Constrain</h3>
-          <p>Mark what must not change. These survive every derivative prompt.</p>
-        </div>
-        <div class="step frag">
-          <div class="n">03</div>
-          <h3>Distil</h3>
-          <p>Strip everything this task does not need. Subtraction is cheap; recovery is not.</p>
-        </div>
-        <div class="step frag">
-          <div class="n">04</div>
-          <h3>Execute</h3>
-          <p>One pass. Review against the master, not against the last reply.</p>
-        </div>
-      </div>
-      <aside class="notes">Overshooting control is the point. It is far easier to delete a constraint you wrote
-        deliberately than to discover one you never set.</aside>
-    </section>
-
-    <!-- ══ 5 ══ CASE STUDY — split, real evidence ══ -->
+    <!-- ══ 4 ══ CASE STUDY — split, real evidence ══ -->
     <section class="slide" data-title="Case study">
       <div class="eyebrow">Case study · Talaria credit facility</div>
       <h2>One context load, three deliverables</h2>
@@ -203,7 +173,7 @@
             <li style="font-size:23px">Tone, length, and named omissions</li>
           </ul>
         </div>
-        <div class="frag">
+        <div>
           <h3 style="color:var(--accent);margin-bottom:18px">What came out</h3>
           <ul class="points" style="gap:12px">
             <li style="font-size:23px">Three letter variants — concise, expanded, full-block</li>
@@ -217,7 +187,7 @@
         reasoning was authored once, because it was specified before the first draft existed.</aside>
     </section>
 
-    <!-- ══ 6 ══ PROMPT COMPARISON — verbatim, side by side ══ -->
+    <!-- ══ 5 ══ PROMPT COMPARISON — verbatim, side by side ══ -->
   <section class="slide" data-title="The prompt evolved">
     <div class="eyebrow">The input</div>
     <h2>What we asked for, twice</h2>
@@ -226,17 +196,17 @@
         <div class="chip">First pass · raw context</div>
         <div class="txt">"We have to convince a bank to increase our credit line… we will be borrowing GPUs for testing our new mapping product, the current credit line won't allow sufficient funds transfers… We are willing to pay an extra 15%."</div>
       </div>
-      <div class="snip snip--prompt frag">
+      <div class="snip snip--prompt">
         <div class="chip">Final pass · master prompt</div>
         <div class="txt">"<b>Act as the CEO</b> of Talaria Technologies Inc. Write a formal, persuasive business letter to our <b>Commercial Bank Relationship Manager</b>… Leave placeholders like <b>[Insert DSCR]</b>… Maintain a tone suitable for a <b>risk-aware financial audience</b>."</div>
       </div>
       <p class="takeaway">Real information, <b>no specification</b>. Role, reader, format and exclusions all left to the model.</p>
-      <p class="takeaway frag">Role, reader, ask, tone and unknowns — <b>all fixed before a word was drafted</b>.</p>
+      <p class="takeaway">Role, reader, ask, tone and unknowns — <b>all fixed before a word was drafted</b>.</p>
     </div>
     <aside class="notes">Read both aloud. The first is not a bad prompt — it carries genuine context. It simply decides nothing, and every decision it skips the model makes on your behalf.</aside>
   </section>
 
-  <!-- ══ 7 ══ LETTER COMPARISON — same claim, two instruments ══ -->
+  <!-- ══ 6 ══ LETTER COMPARISON — same claim, two instruments ══ -->
   <section class="slide" data-title="The letter evolved">
     <div class="eyebrow">The output</div>
     <h2>Same argument, sharper instrument</h2>
@@ -245,17 +215,17 @@
         <div class="chip">Letter one</div>
         <div class="txt">"Phase 2 changes our cash mechanics in one specific way… The constraint is one of <b>velocity and timing, not solvency</b>."</div>
       </div>
-      <div class="snip snip--letter frag">
+      <div class="snip snip--letter">
         <div class="chip">Final letter</div>
         <div class="txt">"I want to be precise about the nature of the constraint, <b>because it would be easy to misread</b>… Stated plainly, this is a constraint of velocity and timing, not of solvency or coverage."</div>
       </div>
       <p class="takeaway">Correct and compact. Built to be <b>scanned</b>.</p>
-      <p class="takeaway frag">The same claim, now <b>naming the misreading</b> before the reader reaches it.</p>
+      <p class="takeaway">The same claim, now <b>naming the misreading</b> before the reader reaches it.</p>
     </div>
     <aside class="notes">The argument did not change between these two. Only its handling of the reader did — and that came from the brief, not from a rewrite.</aside>
   </section>
 
-  <!-- ══ 8 ══ THREE AXES — the comparison that matters ══ -->
+  <!-- ══ 7 ══ THREE AXES — the comparison that matters ══ -->
   <section class="slide" data-title="Three axes">
     <div class="eyebrow">What actually changed</div>
     <h2>Three axes, one direction</h2>
@@ -279,22 +249,22 @@
     <aside class="notes">Responsibility is the row to dwell on. Specifying the prompt did not only improve the prose — it decided what we were willing to say, and what we refused to claim without evidence.</aside>
   </section>
 
-  <!-- ══ 9 ══ OPERATIONAL IMPACT — 3-column cards ══ -->
+  <!-- ══ 8 ══ OPERATIONAL IMPACT — 3-column cards ══ -->
     <section class="slide" data-title="Operational impact">
       <div class="eyebrow">Operational impact</div>
       <h2>Control without a bottleneck</h2>
       <div class="cols-3 fill" style="align-content:center">
-        <div class="card frag">
+        <div class="card">
           <div class="num">01</div>
           <h3>Responsibility</h3>
           <p>Standardised inputs make output governable. What the model was told is auditable after the fact.</p>
         </div>
-        <div class="card frag">
+        <div class="card">
           <div class="num">02</div>
           <h3>Empowerment</h3>
           <p>Teams inherit the context. No one needs to be a prompt engineer to get a compliant result.</p>
         </div>
-        <div class="card frag">
+        <div class="card">
           <div class="num">03</div>
           <h3>Flexibility</h3>
           <p>Departments tune parameters, not principles. The core constraints hold across every unit.</p>
@@ -304,24 +274,24 @@
         the artefact, so the team does not have to carry it.</aside>
     </section>
 
-    <!-- ══ 10 ══ METRICS — large callouts ══ -->
+    <!-- ══ 9 ══ METRICS — large callouts ══ -->
     <section class="slide" data-title="Improvements">
       <div class="eyebrow">Noteworthy improvements</div>
       <h2>What changed, measured</h2>
       <div class="metrics">
-        <div class="metric frag">
+        <div class="metric">
           <div class="v ph">[&nbsp;&nbsp;&nbsp;]%</div>
           <div class="l">Fewer revision loops per deliverable</div>
         </div>
-        <div class="metric frag">
+        <div class="metric">
           <div class="v ph">[&nbsp;&nbsp;&nbsp;]%</div>
           <div class="l">Faster to first usable draft</div>
         </div>
-        <div class="metric frag">
+        <div class="metric">
           <div class="v">3</div>
           <div class="l">Deliverable formats from one context load</div>
         </div>
-        <div class="metric frag">
+        <div class="metric">
           <div class="v">0</div>
           <div class="l">Arguments rebuilt from scratch</div>
         </div>
@@ -332,7 +302,7 @@
         source is worse than no metric with this audience.</aside>
     </section>
 
-    <!-- ══ 11 ══ CENTRE ALIGNMENT — concentric radial ══ -->
+    <!-- ══ 10 ══ CENTRE ALIGNMENT — concentric radial ══ -->
     <section class="slide" data-title="Centre alignment">
       <div class="eyebrow">Strategic alignment</div>
       <h2>The engine sits at the centre</h2>
@@ -367,22 +337,22 @@
         core, so no team inherits a degraded copy of the standard.</aside>
     </section>
 
-    <!-- ══ 12 ══ ADOPTION — three phases ══ -->
+    <!-- ══ 11 ══ ADOPTION — three phases ══ -->
     <section class="slide" data-title="Adoption">
       <div class="eyebrow">Adoption model</div>
       <h2>Govern the core, not the forks</h2>
       <div class="steps" style="grid-template-columns:repeat(3,1fr)">
-        <div class="step frag">
+        <div class="step">
           <div class="n">PHASE 1</div>
           <h3>Author</h3>
           <p>One master prompt per work category, owned centrally and version-controlled.</p>
         </div>
-        <div class="step frag">
+        <div class="step">
           <div class="n">PHASE 2</div>
           <h3>Fork</h3>
           <p>Units distil their own variants. Parameters are theirs; constraints are not.</p>
         </div>
-        <div class="step frag">
+        <div class="step">
           <div class="n">PHASE 3</div>
           <h3>Review</h3>
           <p>Audit outputs against the master. Amend the core once; every fork inherits it.</p>
@@ -392,7 +362,7 @@
         from does.</aside>
     </section>
 
-    <!-- ══ 13 ══ CLOSE — statement ══ -->
+    <!-- ══ 12 ══ CLOSE — statement ══ -->
     <section class="slide slide--statement" data-title="Close">
       <div class="eyebrow">The thesis</div>
       <div class="quote" style="margin-bottom:36px">Undershooting is not a skill problem.<br>It is a direction problem.
@@ -411,7 +381,7 @@
         '<p style="margin-top:12px">Or from this folder: <code>npx serve</code> / <code>python -m http.server</code></p></div></div>');
     }
   </script>
-  <script type="module" src="js/main.js?v=2"></script>
+  <script type="module" src="js/main.js?v=5"></script>
 </body>
 
 </html>

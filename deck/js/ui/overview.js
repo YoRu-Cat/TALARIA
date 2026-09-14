@@ -23,6 +23,7 @@ function build(){
 
     const inner = slide.cloneNode(true);
     inner.classList.add('inner', 'is-active');
+    inner.removeAttribute('data-dir');   // thumbnails never animate
     inner.style.display = 'flex';
     $$('.frag', inner).forEach(f => f.classList.add('is-shown'));
 

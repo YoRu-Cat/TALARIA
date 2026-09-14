@@ -28,6 +28,10 @@ export function go(n, edge = 'start'){
   const slide = slides[index];
   const steps = fragsOf(slide).length;
 
+  // Direction drives which entrance animation the slide plays.
+  // Going to the same or a later slide reads as forward, including first paint.
+  slide.dataset.dir = index < state.index ? 'back' : 'fwd';
+
   slides.forEach((s, i) => s.classList.toggle('is-active', i === index));
   commit({ index, steps, step: edge === 'end' ? steps : 0 });
   paintFragments();
